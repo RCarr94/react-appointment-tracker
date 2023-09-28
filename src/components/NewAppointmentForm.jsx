@@ -21,7 +21,11 @@ export default function NewAppointmentForm({ addAppointment }) {
     evt.preventDefault();
     console.log(formData);
     addAppointment(formData);
-    // localStorage.setItem('appointment', JSON.stringify(appointment));
+    // setFormData({
+    //   title: '',
+    //   date: '',
+    //   duration: ''
+    // });
   }
 
 
