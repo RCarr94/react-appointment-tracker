@@ -1,20 +1,20 @@
 import './App.css';
 import { useState } from 'react';
-import ScheduleAppointment from '../../components/ScheduleAppointment';
+import NewAppointmentForm from '../../components/NewAppointmentForm';
 import AppointmentCard from '../../components/AppointmentCard';
 
 export default function App() {
-  const [appointment, setAppointment] = useState({
-    title: '',
-    date: '',
-    duration: ''
-  });
+  const [appointments, setAppointments] = useState([]);
 
+  function addAppointment(newAppt){
+    setAppointments([...appointments, newAppt]);
+  }
+  
   return (
     <div className="App">
       <h1>Appointment Tracker</h1>
-      <ScheduleAppointment />
-      <AppointmentCard appointment={appointment} />
+      <NewAppointmentForm addAppointment={addAppointment}/>
+      <AppointmentCard appointments={appointments} />
     </div>
   );
 }
