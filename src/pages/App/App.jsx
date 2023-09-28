@@ -13,6 +13,14 @@ export default function App() {
     setAppointments([...appointments, newAppt]);
   }
 
+// delete the appointment
+  function deleteAppointment(index){
+    const newAppointments = [...appointments];
+    newAppointments.splice(index, 1);
+    setAppointments(newAppointments);
+  }
+
+
 
   // update local storage whenever appointments state changes
   useEffect(() => {
@@ -23,7 +31,7 @@ export default function App() {
     <div className="App">
       <h1>Appointment Tracker</h1>
       <NewAppointmentForm addAppointment={addAppointment}/>
-      <AppointmentCard appointments={appointments} />
+      <AppointmentCard appointments={appointments} deleteAppointment={deleteAppointment}/>
     </div>
   );
 }

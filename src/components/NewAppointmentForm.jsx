@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 export default function NewAppointmentForm({ addAppointment }) {
   const [formData, setFormData] = useState({
-    title: '',
-    date: '',
-    duration: ''
+    title: "",
+    date: "",
+    duration: ""
   });
 
   function handleChange(evt) {
@@ -20,6 +20,11 @@ export default function NewAppointmentForm({ addAppointment }) {
   function handleNewAppt(evt) {
     evt.preventDefault();
     addAppointment(formData);
+    setFormData({
+      title: "",
+      date: "",
+      duration: ""
+    });
   }
 
 

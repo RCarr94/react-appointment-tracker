@@ -1,6 +1,6 @@
 import AppointmentCardListItem from "./AppointmentCardListItem";
 
-export default function AppointmentCard({ appointments }) {
+export default function AppointmentCard({ appointments, deleteAppointment }) {
 
   if (!appointments.length) {
     return (
@@ -10,8 +10,8 @@ export default function AppointmentCard({ appointments }) {
 
   return(
     <div>
-      {appointments.map((appointment, idx) => (
-        <AppointmentCardListItem key={idx} appointment={appointment} idx={idx}/>
+      {appointments.map((appointment, id) => (
+        <AppointmentCardListItem key={id} appointment={appointment} id={id} deleteAppointment={deleteAppointment}/>
       ))}
     </div>
   )
