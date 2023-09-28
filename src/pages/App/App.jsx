@@ -3,20 +3,16 @@ import { useState, useEffect } from 'react';
 import NewAppointmentForm from '../../components/NewAppointmentForm';
 import AppointmentCard from '../../components/AppointmentCard';
 
+
 export default function App() {
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState(() => {
+    return JSON.parse(localStorage.getItem('appointments')) || []
+  });
 
   function addAppointment(newAppt){
     setAppointments([...appointments, newAppt]);
   }
-  
-  // retrieve data from local storage and initialize when component mounts
-  useEffect(() => {
-    const storedAppointments = JSON.parse(localStorage.getItem('appointments'));
-    if (storedAppointments) {
-      setAppointments(storedAppointments);
-    }
-  }, []);
+
 
   // update local storage whenever appointments state changes
   useEffect(() => {

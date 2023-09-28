@@ -19,13 +19,7 @@ export default function NewAppointmentForm({ addAppointment }) {
 
   function handleNewAppt(evt) {
     evt.preventDefault();
-    console.log(formData);
     addAppointment(formData);
-    // setFormData({
-    //   title: '',
-    //   date: '',
-    //   duration: ''
-    // });
   }
 
 
